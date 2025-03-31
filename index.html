@@ -5,6 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Email Verified - Optima</title>
   <link rel="icon" href="https://yourdomain.com/favicon.png" />
+  
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyB_dh_-ZW4Tt9do13GNhXv-BR6_2Y8bIGA",
+      authDomain: "optima-78874.firebaseapp.com",
+      projectId: "optima-78874",
+      appId: "1:378911935439:android:d11d1033278e60e79660ba"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    window.onload = async () => {
+      const params = new URLSearchParams(window.location.search);
+      const oobCode = params.get("oobCode");
+      const mode = params.get("mode");
+
+      if (mode === "verifyEmail" && oobCode) {
+        try {
+          await firebase.auth().applyActionCode(oobCode);
+          document.getElementById("verified").style.display = "block";
+        } catch (e) {
+          console.error("Verification failed", e);
+        }
+      }
+    };
+  </script>
+
   <style>
     body {
       background-color: #1C2837;
@@ -21,6 +51,11 @@
 
     .container {
       padding: 40px 20px;
+      display: none;
+    }
+
+    .container.visible {
+      display: block;
     }
 
     h1 {
@@ -42,14 +77,12 @@
       max-width: 70vw;
       height: auto;
     }
-
   </style>
 </head>
 <body>
-  <div class="container">
+  <div id="verified" class="container">
     <h1>✅ Email Verified!</h1>
     <p>Thanks for verifying your email. You’re all set — you can now return to the app.</p>
-
     <img class="logo" src="https://i.ibb.co/20Y2p8Gv/logo-foreground.png" alt="Optima Logo">
   </div>
 </body>
