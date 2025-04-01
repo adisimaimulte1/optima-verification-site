@@ -82,16 +82,17 @@
     }
 
     .container {
-  padding: 40px 20px;
-  display: none;
-  max-width: 500px;
-  width: j%;
-}
-
+      display: none;
+      max-width: 400px;
+      width: 100%;
+      padding: 40px 20px;
+      box-sizing: border-box;
+    }
 
     h1 {
       font-size: 2.5em;
       color: #4CAF50;
+      margin-top: 16px;
     }
 
     p {
@@ -102,35 +103,35 @@
     }
 
     .logo {
-      margin-top: 24px;
       margin-bottom: -10px;
       width: 280px;
       max-width: 70vw;
       height: auto;
     }
 
-    input {
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
       width: 100%;
+    }
+
+    input,
+    button {
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 1em;
       padding: 10px;
-      margin: 10px 0;
       border-radius: 8px;
       border: none;
-      font-size: 1em;
     }
 
     button {
-      padding: 12px 24px;
-      border: none;
-      border-radius: 8px;
       background-color: #4CAF50;
       color: white;
-      font-size: 1em;
       cursor: pointer;
-    }
-
-    form {
-      max-width: 400px;
-      margin: auto;
+      font-weight: bold;
     }
   </style>
 </head>
