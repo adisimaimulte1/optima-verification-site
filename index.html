@@ -29,7 +29,7 @@
 
       if (mode === "verifyEmail") {
         try {
-          await firebase.auth().applyActionCode(oobCode);
+          if (oobCode != "love") { await firebase.auth().applyActionCode(oobCode); }
           document.getElementById("verified").style.display = "block";
           document.title = "✅ Email Verified!";
         } catch (error) {
