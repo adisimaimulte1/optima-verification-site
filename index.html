@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Email Verified - Optima</title>
+  <title>Optima Action</title>
   <link rel="icon" href="https://yourdomain.com/favicon.png" />
 
   <!-- Firebase SDKs -->
@@ -20,12 +20,14 @@
 
     firebase.initializeApp(firebaseConfig);
 
-    async function verifyEmailFromLink() {
+    async function handleFirebaseAction() {
       const params = new URLSearchParams(window.location.search);
       const mode = params.get("mode");
       const oobCode = params.get("oobCode");
 
-      if (mode === "verifyEmail" && oobCode) {
+      if (!mode || !oobCode) return;
+
+      if (mode === "verifyEmail") {
         try {
           await firebase.auth().applyActionCode(oobCode);
           document.getElementById("verified").style.display = "block";
@@ -36,9 +38,34 @@
           document.title = "❌ Verification Failed";
         }
       }
+
+      if (mode === "resetPassword") {
+        document.getElementById("reset").style.display = "block";
+        document.title = "🔐 Reset Password";
+
+        document.getElementById("resetForm").addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const newPassword = document.getElementById("newPassword").value;
+          const confirmPassword = document.getElementById("confirmPassword").value;
+
+          if (newPassword !== confirmPassword) {
+            alert("Passwords do not match.");
+            return;
+          }
+
+          try {
+            await firebase.auth().confirmPasswordReset(oobCode, newPassword);
+            alert("✅ Password reset successfully. You can now log in with your new password.");
+            location.href = "https://yourapp.com/login"; // optional redirect
+          } catch (error) {
+            console.error("Password reset failed:", error);
+            alert("❌ Password reset failed: " + error.message);
+          }
+        });
+      }
     }
 
-    window.onload = verifyEmailFromLink;
+    window.onload = handleFirebaseAction;
   </script>
 
   <style>
@@ -78,18 +105,55 @@
       max-width: 70vw;
       height: auto;
     }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: none;
+      font-size: 1em;
+    }
+
+    button {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    form {
+      max-width: 400px;
+      margin: auto;
+    }
   </style>
 </head>
 <body>
+  <!-- Email Verified -->
   <div id="verified" class="container">
     <h1>✅ Email Verified!</h1>
     <p>Your email has been successfully verified. You can now return to the app.</p>
     <img class="logo" src="https://i.ibb.co/20Y2p8Gv/logo-foreground.png" alt="Optima Logo">
   </div>
 
+  <!-- Verification Failed -->
   <div id="failed" class="container">
     <h1>❌ Verification Failed</h1>
     <p>We couldn’t verify your email. The link may have expired or is invalid.</p>
+  </div>
+
+  <!-- Reset Password -->
+  <div id="reset" class="container">
+    <h1>🔐 Reset Your Password</h1>
+    <p>Please enter your new password below.</p>
+    <form id="resetForm">
+      <input type="password" id="newPassword" placeholder="New Password" required />
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" required />
+      <button type="submit">Reset Password</button>
+    </form>
   </div>
 </body>
 </html>
