@@ -56,7 +56,6 @@
           try {
             await firebase.auth().confirmPasswordReset(oobCode, newPassword);
             alert("✅ Password reset successfully. You can now log in with your new password.");
-            location.href = "https://yourapp.com/login"; // optional redirect
           } catch (error) {
             console.error("Password reset failed:", error);
             alert("❌ Password reset failed: " + error.message);
@@ -147,6 +146,7 @@
 
   <!-- Reset Password -->
   <div id="reset" class="container">
+    <img class="logo" src="https://i.ibb.co/20Y2p8Gv/logo-foreground.png" alt="Optima Logo">
     <h1>🔐 Reset Your Password</h1>
     <p>Please enter your new password below.</p>
     <form id="resetForm">
