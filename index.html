@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI, Credite & Planuri – Optima</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      padding-top: 70px; /* pentru bara de sus, fără spațiu inutil */
+    }
+    @media (max-width: 700px) {
+      .logo-fixed { height: 44px; }
+      .side-menu { width: 90vw; }
+    }
+    /* ...restul stilurilor pentru conținutul paginii... */
+  </style>
+</head>
+<body>
+  <!-- Bara de sus -->
+  <div class="top-bar">
+    <div style="display: flex; align-items: center; gap: 1.2rem;">
+      <button id="menuToggle" class="hamburger" aria-label="Deschide meniul">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="index.html" style="display: flex; align-items: center;">
+        <img src="https://i.ibb.co/20Y2p8Gv/logo-foreground.png" alt="Logo Optima" class="logo-fixed" />
+      </a>
+    </div>
+    <div id="languageToggle" class="lang-switch">EN</div>
+  </div>
+
+  <!-- Meniu lateral stânga -->
+  <nav id="sideMenu" class="side-menu">
+    <div class="menu-links">
+      <a href="overview.html" class="menu-btn">Funcționalități</a>
+      <a href="ai-planuri.html" class="menu-btn">AI & Planuri</a>
+      <a href="explore.html" class="menu-btn">Descoperă în aplicație</a>
+      <a href="contact.html" class="menu-btn">Contact</a>
+    </div>
+    <div class="download-buttons">
+      <a href="https://play.google.com/store/apps/details?id=com.optimaction.app" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" />
+      </a>
+      <a href="https://apps.apple.com/app/id0000000" target="_blank" rel="noopener">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" />
+      </a>
+    </div>
+    <button id="closeMenu" aria-label="Închide meniul">&times;</button>
+  </nav>
+  <div id="menuOverlay" class="menu-overlay"></div>
+
+  <!-- Email Verified -->
+  <div id="verified" class="container">
+    <h1 data-ro="✅ Email verificat cu succes!" data-en="✅ Email verified successfully!">✅ Email verificat cu succes!</h1>
+    <p data-ro="Contul tău este acum activ. Intră în aplicație și începe să atingi performanța!"
+       data-en="Your account is now active. Enter the app and start performing!">Contul tău este acum activ.</p>
+    <img class="logo" src="https://i.ibb.co/20Y2p8Gv/logo-foreground.png" alt="Optima Logo">
+    <a href="https://optima-78874.firebaseapp.com/login">
+      <button data-ro="Deschide aplicația" data-en="Open the app">Deschide aplicația</button>
+    </a>
+  </div>
+
+  <!-- Verification Failed -->
+  <div id="failed" class="container">
+    <h1 data-ro="❌ Verificare eșuată" data-en="❌ Verification failed">❌ Verificare eșuată</h1>
+    <p data-ro="Link-ul de verificare este expirat sau invalid. Te rugăm să încerci din nou."
+       data-en="The verification link is expired or invalid. Please try again.">Link-ul de verificare este expirat.</p>
+    <img class="logo" src="https://i.ibb.co/20Y2p8Gv/logo-foreground.png" alt="Optima Logo">
+    <a href="https://optima-78874.firebaseapp.com/login">
+      <button data-ro="Reîncearcă" data-en="Try Again">Reîncearcă</button>
+    </a>
+  </div>
+
+  <!-- Reset Password -->
+  <div id="reset" class="container">
+    <img class="logo" src="https://i.ibb.co/20Y2p8Gv/logo-foreground.png" alt="Optima Logo">
+    <h1 data-ro="🔐 Resetează-ți parola" data-en="🔐 Reset your password">🔐 Resetează-ți parola</h1>
+    <p data-ro="Setează o nouă parolă pentru a accesa din nou contul tău."
+       data-en="Set a new password to access your account again.">Setează o nouă parolă.</p>
+    <form id="resetForm">
+      <input type="password" id="newPassword" placeholder="Parolă nouă" required />
+      <input type="password" id="confirmPassword" placeholder="Confirmă parola" required />
+      <button type="submit" data-ro="Resetează parola" data-en="Reset password">Resetează parola</button>
+    </form>
+  </div>
+
+  <!-- Homepage -->
+  <div id="home" class="container">
+    <img class="logo" src="https://i.ibb.co/20Y2p8Gv/logo-foreground.png" alt="Optima Logo">
+
+    <h1 data-ro="🚀 Optima App – Acționează eficient, obține rezultate!"
+        data-en="🚀 Optima App – Act efficiently, get results!">🚀 Optima App – Acționează eficient!</h1>
+    <p data-ro="Transformă-ți ziua într-o succesiune de realizări. Cu Optima, ești mereu organizat, productiv și cu un pas înainte."
+       data-en="Turn your day into a string of achievements. With Optima, you’re always organized, productive and ahead."><strong>Transformă-ți ziua într-o succesiune de realizări. Cu Optima, ești mereu organizat, productiv și cu un pas înainte.</strong></p>
+
+    <ul class="features">
+      <li data-ro="✅ Planificare clară și intuitivă" data-en="✅ Clear and intuitive planning">✅ Planificare clară și intuitivă</li>
+      <li data-ro="✅ Notificări inteligente și acțiuni prioritare" data-en="✅ Smart notifications and prioritized actions">✅ Notificări inteligente</li>
+      <li data-ro="✅ Vizibilitate completă asupra progresului tău" data-en="✅ Full visibility over your progress">✅ Vizibilitate completă</li>
+    </ul>
+
+    <p data-ro="Descarcă aplicația acum și preia controlul asupra timpului tău!"
+       data-en="Download the app now and take control of your time!"><strong>Descarcă aplicația acum și preia controlul asupra timpului tău!</strong></p>
+
+    <a href="explore.html">
+      <button data-ro="🔓 Descoperă în aplicație" data-en="🔓 Explore in the app">🔓 Descoperă în aplicație</button>
+    </a>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>© <span id="year"></span> Optima Technologies. Toate drepturile rezervate.</p>
+      <div class="footer-links">
+        <a href="index.html">Acasă</a>
+        <a href="overview.html">Funcționalități</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+  document.getElementById("year") && (document.getElementById("year").textContent = new Date().getFullYear());
+
+  // Buton meniu hamburger
+  const menuToggle = document.getElementById('menuToggle');
+  const sideMenu = document.getElementById('sideMenu');
+  const menuOverlay = document.getElementById('menuOverlay');
+  const closeMenu = document.getElementById('closeMenu');
+  menuToggle.onclick = () => {
+    sideMenu.classList.add('open');
+    menuOverlay.classList.add('open');
+  };
+  closeMenu.onclick = menuOverlay.onclick = () => {
+    sideMenu.classList.remove('open');
+    menuOverlay.classList.remove('open');
+  };
+
+  // Buton limbă
+  let lang = 'ro';
+  const toggle = document.getElementById('languageToggle');
+  toggle.addEventListener('click', function() {
+    lang = lang === 'ro' ? 'en' : 'ro';
+    this.textContent = lang === 'ro' ? 'EN' : 'RO';
+    document.querySelectorAll('[data-ro]').forEach(el => {
+      el.innerHTML = el.getAttribute(`data-${lang}`);
+    });
+  });
+  </script>
+</body>
+</html>
