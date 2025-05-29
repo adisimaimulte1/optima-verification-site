@@ -5,6 +5,84 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AI, Credite & Planuri – Optima</title>
   <link rel="stylesheet" href="styles.css">
+
+
+  <!--Aci se producE mare javsaSctipt-->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+
+  <script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyB_dh_-ZW4Tt9do13GNhXv-BR6_2Y8bIGA",
+    authDomain: "optima-78874.firebaseapp.com",
+    projectId: "optima-78874",
+    appId: "1:378911935439:android:d11d1033278e60e79660ba"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+
+  async function handleFirebaseAction() {
+    const params = new URLSearchParams(window.location.search);
+    const mode = params.get("mode");
+    const oobCode = params.get("oobCode");
+
+    document.querySelectorAll(".container").forEach(el => el.style.display = "none");
+
+    if (!mode || !oobCode) {
+      document.getElementById("home").style.display = "block";
+      return;
+    }
+
+    if (mode === "verifyEmail") {
+      try {
+        if (oobCode !== "love") {
+          await firebase.auth().applyActionCode(oobCode);
+        }
+        document.getElementById("verified").style.display = "block";
+        document.title = "✅ Email Verified!";
+        setTimeout(() => {
+          window.location.href = "https://optima-78874.firebaseapp.com/login";
+        }, 4000);
+      } catch (error) {
+        console.error("Verification failed:", error);
+        document.getElementById("failed").style.display = "block";
+        document.title = "❌ Verification Failed";
+      }
+    }
+
+    if (mode === "resetPassword") {
+      document.getElementById("reset").style.display = "block";
+      document.title = "🔐 Reset Password";
+
+      document.getElementById("resetForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const newPassword = document.getElementById("newPassword").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
+
+        if (newPassword !== confirmPassword) {
+          alert("Parolele nu coincid.");
+          return;
+        }
+
+        try {
+          await firebase.auth().confirmPasswordReset(oobCode, newPassword);
+          alert("✅ Parola a fost resetată cu succes. Te poți autentifica cu noua parolă.");
+          setTimeout(() => {
+            window.location.href = "https://optima-78874.firebaseapp.com/login";
+          }, 4000);
+        } catch (error) {
+          console.error("Password reset failed:", error);
+          alert("❌ Resetarea parolei a eșuat: " + error.message);
+        }
+      });
+    }
+  }
+
+  window.onload = handleFirebaseAction;
+</script>
+
+
+
   <style>
     body {
       padding-top: 70px; /* pentru bara de sus, fără spațiu inutil */
@@ -39,20 +117,21 @@
       <a href="contact.html" class="menu-btn">Contact</a>
     </div>
     <div class="download-buttons">
-      <a href="https://play.google.com/store/apps/details?id=com.optimaction.app" target="_blank" rel="noopener">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" />
-      </a>
-      <a href="https://apps.apple.com/app/id0000000" target="_blank" rel="noopener">
-        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" />
-      </a>
-    </div>
+  <a href="optima-v1.apk" download="optima-v1.apk">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" />
+  </a>
+  <a href="https://apps.apple.com/app/id0000000" target="_blank" rel="noopener">
+    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" />
+  </a>
+</div>
+
     <button id="closeMenu" aria-label="Închide meniul">&times;</button>
   </nav>
   <div id="menuOverlay" class="menu-overlay"></div>
 
   <!-- Email Verified -->
   <div id="verified" class="container">
-    <h1 data-ro="✅ Email verificat cu succes!" data-en="✅ Email verified successfully!">✅ Email verificat cu succes!</h1>
+    <h1 data-ro=" Email verificat cu succes!" data-en=" Email verified successfully!"> Email verificat cu succes!</h1>
     <p data-ro="Contul tău este acum activ. Intră în aplicație și începe să atingi performanța!"
        data-en="Your account is now active. Enter the app and start performing!">Contul tău este acum activ.</p>
     <img class="logo" src="https://i.ibb.co/20Y2p8Gv/logo-foreground.png" alt="Optima Logo">
@@ -63,7 +142,7 @@
 
   <!-- Verification Failed -->
   <div id="failed" class="container">
-    <h1 data-ro="❌ Verificare eșuată" data-en="❌ Verification failed">❌ Verificare eșuată</h1>
+    <h1 data-ro=" Verificare eșuată" data-en=" Verification failed"> Verificare eșuată</h1>
     <p data-ro="Link-ul de verificare este expirat sau invalid. Te rugăm să încerci din nou."
        data-en="The verification link is expired or invalid. Please try again.">Link-ul de verificare este expirat.</p>
     <img class="logo" src="https://i.ibb.co/20Y2p8Gv/logo-foreground.png" alt="Optima Logo">
@@ -75,7 +154,7 @@
   <!-- Reset Password -->
   <div id="reset" class="container">
     <img class="logo" src="https://i.ibb.co/20Y2p8Gv/logo-foreground.png" alt="Optima Logo">
-    <h1 data-ro="🔐 Resetează-ți parola" data-en="🔐 Reset your password">🔐 Resetează-ți parola</h1>
+    <h1 data-ro=" Resetează-ți parola" data-en=" Reset your password"> Resetează-ți parola</h1>
     <p data-ro="Setează o nouă parolă pentru a accesa din nou contul tău."
        data-en="Set a new password to access your account again.">Setează o nouă parolă.</p>
     <form id="resetForm">
@@ -89,22 +168,22 @@
   <div id="home" class="container">
     <img class="logo" src="https://i.ibb.co/20Y2p8Gv/logo-foreground.png" alt="Optima Logo">
 
-    <h1 data-ro="🚀 Optima App – Acționează eficient, obține rezultate!"
-        data-en="🚀 Optima App – Act efficiently, get results!">🚀 Optima App – Acționează eficient!</h1>
+    <h1 data-ro=" Optima App – Acționează eficient, obține rezultate!"
+        data-en=" Optima App – Act efficiently, get results!"> Optima App – Acționează eficient!</h1>
     <p data-ro="Transformă-ți ziua într-o succesiune de realizări. Cu Optima, ești mereu organizat, productiv și cu un pas înainte."
        data-en="Turn your day into a string of achievements. With Optima, you’re always organized, productive and ahead."><strong>Transformă-ți ziua într-o succesiune de realizări. Cu Optima, ești mereu organizat, productiv și cu un pas înainte.</strong></p>
 
     <ul class="features">
-      <li data-ro="✅ Planificare clară și intuitivă" data-en="✅ Clear and intuitive planning">✅ Planificare clară și intuitivă</li>
-      <li data-ro="✅ Notificări inteligente și acțiuni prioritare" data-en="✅ Smart notifications and prioritized actions">✅ Notificări inteligente</li>
-      <li data-ro="✅ Vizibilitate completă asupra progresului tău" data-en="✅ Full visibility over your progress">✅ Vizibilitate completă</li>
+      <li data-ro=" Planificare clară și intuitivă" data-en=" Clear and intuitive planning"> Planificare clară și intuitivă</li>
+      <li data-ro=" Notificări inteligente și acțiuni prioritare" data-en=" Smart notifications and prioritized actions"> Notificări inteligente</li>
+      <li data-ro=" Vizibilitate completă asupra progresului tău" data-en=" Full visibility over your progress"> Vizibilitate completă</li>
     </ul>
 
     <p data-ro="Descarcă aplicația acum și preia controlul asupra timpului tău!"
        data-en="Download the app now and take control of your time!"><strong>Descarcă aplicația acum și preia controlul asupra timpului tău!</strong></p>
 
     <a href="explore.html">
-      <button data-ro="🔓 Descoperă în aplicație" data-en="🔓 Explore in the app">🔓 Descoperă în aplicație</button>
+      <button data-ro=" Descoperă în aplicație" data-en=" Explore in the app"> Descoperă în aplicație</button>
     </a>
   </div>
 
@@ -121,7 +200,7 @@
   <script>
   document.getElementById("year") && (document.getElementById("year").textContent = new Date().getFullYear());
 
-  // Buton meniu hamburger
+  // Buton meniu homborger
   const menuToggle = document.getElementById('menuToggle');
   const sideMenu = document.getElementById('sideMenu');
   const menuOverlay = document.getElementById('menuOverlay');

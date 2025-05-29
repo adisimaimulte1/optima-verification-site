@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact – Optima</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    @media (max-width: 700px) {
+      .logo-fixed { height: 44px; }
+      .side-menu { width: 90vw; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Bara de sus -->
+  <div class="top-bar">
+    <div style="display: flex; align-items: center; gap: 1.2rem;">
+      <button id="menuToggle" class="hamburger" aria-label="Deschide meniul">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="index.html" style="display: flex; align-items: center;">
+        <img src="https://i.ibb.co/20Y2p8Gv/logo-foreground.png" alt="Logo Optima" class="logo-fixed" />
+      </a>
+    </div>
+    <div id="languageToggle" class="lang-switch">EN</div>
+  </div>
+
+  <!-- Meniu lateral identic -->
+  <nav id="sideMenu" class="side-menu">
+    <div class="menu-links">
+      <a href="overview.html" class="menu-btn">Funcționalități</a>
+      <a href="ai-planuri.html" class="menu-btn">AI & Planuri</a>
+      <a href="explore.html" class="menu-btn">Descoperă în aplicație</a>
+      <a href="contact.html" class="menu-btn active">Contact</a>
+    </div>
+    <div class="download-buttons">
+  <a href="optima-v1.apk" download="optima-v1.apk">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" />
+  </a>
+  <a href="https://apps.apple.com/app/id0000000" target="_blank" rel="noopener">
+    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" />
+  </a>
+</div>
+
+    <button id="closeMenu" aria-label="Închide meniul">&times;</button>
+  </nav>
+  <div id="menuOverlay" class="menu-overlay"></div>
+
+  <!-- Conținut principal -->
+  <div class="container" style="display: block; padding-top: 30px;">
+  <h1 
+    style="font-size: 2.5rem; margin-bottom: 30px;" 
+    data-ro="Contactează-ne" 
+    data-en="Contact Us"
+  >
+    Contactează-ne
+  </h1>
+
+  <div style="font-size: 1.2rem; line-height: 2;">
+    <p>
+      <strong data-ro="Telefon:" data-en="Phone:">Telefon:</strong>
+      <a href="tel:+40720781448" style="color: #ffd700;">+40 720 781 448</a>
+    </p>
+    <p>
+      <strong data-ro="Email:" data-en="Email:">Email:</strong>
+      <a href="mailto:adrian.c.contras@gmail.com" style="color: #ffd700;">adrian.c.contras@gmail.com</a>
+    <p>
+      <strong data-ro="WhatsApp:" data-en="WhatsApp:">WhatsApp:</strong>
+      <a href="https://wa.me/40720781448" target="_blank" style="color: #ffd700;">+40 720 781 448</a>
+  </div>
+</div>
+
+
+
+  <!-- Script pentru meniu și limbă -->
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const sideMenu = document.getElementById('sideMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+    const closeMenu = document.getElementById('closeMenu');
+
+    menuToggle.onclick = () => {
+      sideMenu.classList.add('open');
+      menuOverlay.classList.add('open');
+    };
+
+    closeMenu.onclick = menuOverlay.onclick = () => {
+      sideMenu.classList.remove('open');
+      menuOverlay.classList.remove('open');
+    };
+
+    let lang = 'ro';
+    const toggle = document.getElementById('languageToggle');
+    toggle.addEventListener('click', function () {
+      lang = lang === 'ro' ? 'en' : 'ro';
+      this.textContent = lang === 'ro' ? 'EN' : 'RO';
+      document.querySelectorAll('[data-ro]').forEach(el => {
+        el.innerHTML = el.getAttribute(`data-${lang}`);
+      });
+    });
+  </script>
+
+</body>
+</html>

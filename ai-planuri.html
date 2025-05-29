@@ -5,133 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AI, Credite & Planuri – Optima</title>
   <link rel="stylesheet" href="styles.css">
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      min-height: 100vh;
-      background: #181f2a;
-      padding: 0;
-    }
-    /* Stiluri pentru secțiunea AI și tabele */
-    .ai-section {
-      max-width: 900px;
-      margin: 6.5rem auto 2rem auto;
-      background: #222f3e;
-      border-radius: 16px;
-      padding: 2.5rem 1.5rem;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
-      color: #fff;
-    }
-    .ai-section h2 {
-      color: #4CAF50;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-    .ai-section .jamie-demo {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      align-items: center;
-      justify-content: center;
-      margin: 2rem 0;
-    }
-    .jamie-bubble {
-      background: #1e293b;
-      border-radius: 16px;
-      padding: 1.2rem 1.5rem;
-      font-size: 1.1rem;
-      color: #ffd95c;
-      max-width: 340px;
-      box-shadow: 0 2px 12px #0005;
-    }
-    .jamie-demo img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      background: #ffd95c;
-      box-shadow: 0 2px 12px #0005;
-    }
-    .planuri-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 2.5rem 0 1.5rem 0;
-      background: #1e293b;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 2px 12px #0005;
-    }
-    .planuri-table th, .planuri-table td {
-      padding: 1rem 0.5rem;
-      text-align: center;
-      border-bottom: 1px solid #333c4a;
-    }
-    .planuri-table th {
-      background: #4CAF50;
-      color: #fff;
-      font-size: 1.1rem;
-    }
-    .planuri-table tr:last-child td {
-      border-bottom: none;
-    }
-    .planuri-table td {
-      font-size: 1.05rem;
-      color: #cbd5e1;
-    }
-    .planuri-table .plan-free {
-      color: #4CAF50;
-      font-weight: bold;
-    }
-    .planuri-table .plan-starter {
-      color: #ffd95c;
-      font-weight: bold;
-    }
-    .planuri-table .plan-pro {
-      color: #a259ff;
-      font-weight: bold;
-    }
-    .credit-info {
-      background: #1e293b;
-      border-radius: 12px;
-      padding: 1.2rem 1rem;
-      margin: 2rem 0;
-      color: #ffd95c;
-      text-align: center;
-      font-size: 1.1rem;
-      box-shadow: 0 2px 12px #0005;
-    }
-    .ai-section .screenshots {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      justify-content: center;
-      margin: 2rem 0;
-    }
-    .ai-section .screenshots img {
-      width: 220px;
-      border-radius: 12px;
-      box-shadow: 0 2px 12px #0005;
-      background: #fffbe8;
-    }
-    @media (max-width: 700px) {
-      .ai-section, .planuri-table th, .planuri-table td {
-        font-size: 1em;
-        padding: 0.7rem 0.3rem;
-      }
-      .jamie-demo {
-        flex-direction: column;
-      }
-      .ai-section .screenshots {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-  </style>
 </head>
 <body>
   <!-- Bara de sus -->
@@ -156,62 +29,99 @@
       <a href="contact.html" class="menu-btn">Contact</a>
     </div>
     <div class="download-buttons">
-      <a href="https://play.google.com/store/apps/details?id=com.optimaction.app">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" />
-      </a>
-      <a href="https://apps.apple.com/app/id0000000">
-        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" />
-      </a>
-    </div>
+  <a href="optima-v1.apk" download="optima-v1.apk">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" />
+  </a>
+  <a href="https://apps.apple.com/app/id0000000" target="_blank" rel="noopener">
+    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" />
+  </a>
+</div>
+
     <button id="closeMenu" aria-label="Închide meniul">&times;</button>
   </nav>
   <div id="menuOverlay" class="menu-overlay"></div>
 
-  <div class="ai-section">
-    <h2>Jamie – Asistentul AI</h2>
-    <div class="jamie-demo">
-      <img src="img/jamie-avatar.png" alt="Jamie AI" />
-      <div class="jamie-bubble">
-        <b>Jamie:</b> „Serios, ai uitat să setezi locația? Hai să-ți arăt cum se face, ca să nu mai pierzi timpul data viitoare.”
-        <div style="margin-top:1rem; color:#fff; font-size:0.95em;">(Transcriere live + animație puncte)</div>
+  <!-- CONȚINUT PAGINĂ -->
+  <main>
+  <div class="centered-container">
+    <section class="content-box ai-section">
+      <h1 data-ro="Asistentul Jamie și Planuri" data-en="Jamie Assistant & Plans">Asistentul Jamie și Planuri</h1>
+
+      <div class="text-block">
+        <p data-ro="Jamie este un asistent AI avansat, integrat direct în aplicația Optima. Nu doar că te ajută să planifici evenimente, dar îți oferă o experiență inteligentă și personalizată de fiecare dată când îl folosești." data-en="Jamie is an advanced AI assistant, built directly into the Optima app. It not only helps you plan events, but also offers a smart and personalized experience every time you use it."><strong>Jamie</strong> este un asistent AI avansat, integrat direct în aplicația Optima. Nu doar că te ajută să planifici evenimente, dar îți oferă o experiență inteligentă și personalizată de fiecare dată când îl folosești.</p>
+
+        <p data-ro="Activabil prin cuvântul-cheie &quot;Hey Jamie!&quot;, el ascultă comenzile tale și răspunde vocal, în timp real, cu o interfață elegantă și puncte animate. Este ideal când ai mâinile ocupate sau vrei o experiență mai naturală." data-en="Activated by the keyword 'Hey Jamie!', it listens to your commands and responds vocally in real-time, with a sleek interface and animated dots. It's perfect when your hands are busy or you want a more natural experience.">Activabil prin cuvântul-cheie <strong>„Hey Jamie!”</strong>, el ascultă comenzile tale și răspunde vocal, în timp real, cu o interfață elegantă și puncte animate. Este ideal când ai mâinile ocupate sau vrei o experiență mai naturală.</p>
+
+        <ul>
+          <li data-ro="Activare vocală cu răspunsuri rapide" data-en="Voice activation with quick responses">Activare vocală cu răspunsuri rapide</li>
+          <li data-ro="Analiză AI pentru locație, dată, audiență și succes" data-en="AI analysis for location, date, audience, and success">Analiză AI pentru locație, dată, audiență și succes</li>
+          <li data-ro="Transcriere live și feedback vizual" data-en="Live transcription and visual feedback">Transcriere live și feedback vizual</li>
+          <li data-ro="Notificări inteligente și planificare asistată" data-en="Smart notifications and assisted planning">Notificări inteligente și planificare asistată</li>
+        </ul>
+
+        <p data-ro="Accesul la funcțiile AI este gestionat printr-un sistem flexibil de credite – primești gratuit zilnic, poți urmări reclame sau poți alege un plan premium." data-en="Access to AI functions is managed through a flexible credit system – you get free daily credits, can watch ads, or choose a premium plan.">Accesul la funcțiile AI este gestionat printr-un sistem flexibil de <strong>credite</strong> – primești gratuit zilnic, poți urmări reclame sau poți alege un plan premium.</p>
       </div>
-    </div>
-    <div class="screenshots">
-      <img src="img/jamie-voice-demo.png" alt="Jamie Voice Demo" />
-      <img src="img/ai-optimize-demo.png" alt="Optimizare AI Add Event" />
-    </div>
-    <div class="credit-info">
-      Pentru a accesa funcțiile avansate AI (planificare, analiză, voice chat), folosești <b>credite</b>.<br>
-      Primești gratis zilnic sau prin reclame, sau poți alege un plan premium.
-    </div>
-    <table class="planuri-table">
-      <tr>
-        <th>Plan</th>
-        <th>Preț</th>
-        <th>Ce oferă</th>
-      </tr>
-      <tr>
-        <td class="plan-free">🟢 Free</td>
-        <td>0 lei</td>
-        <td>Acces limitat, reclame, 5 credite/zi</td>
-      </tr>
-      <tr>
-        <td class="plan-starter">🟡 Starter</td>
-        <td>1 USD / o dată</td>
-        <td>20 credite instant, fără reclame</td>
-      </tr>
-      <tr>
-        <td class="plan-pro">🟣 Pro</td>
-        <td>30 USD / lună</td>
-        <td>20 credite/zi, AI nelimitat, fără reclame</td>
-      </tr>
-    </table>
-    <div class="screenshots">
-      <img src="img/planuri-dialog.png" alt="Dialog planuri" />
-      <img src="img/reward-ad-demo.png" alt="Reward ad demo" />
-      <img src="img/credit-balance-demo.png" alt="Credit balance" />
-    </div>
+
+      <!-- Imagine reprezentativă înainte de planuri -->
+      <div style="display: flex; justify-content: center; margin: 3rem 0;">
+        <img src="img/jamie-voice-demo.png" alt="Demo Jamie vorbind" style="max-width: 100%; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.2);" />
+      </div>
+
+      <h2 style="text-align: center; color: #ffd95c; font-size: 2rem; margin-top: 3rem;" data-ro="Planuri disponibile" data-en="Available Plans">Planuri disponibile</h2>
+
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.5rem; margin-top: 2rem;">
+
+  <div style="flex: 1 1 280px; background: #1e293b; border: 2px solid #ffd95c; border-radius: 16px; padding: 1.5rem; box-shadow: 0 0 10px #ffd95c88;">
+    <h3 style="color: #ffd95c; display: flex; justify-content: space-between; align-items: center;">
+      Free
+      <span style="background: #ffd95c; color: #1e293b; padding: 0.2rem 0.6rem; font-size: 0.8rem; border-radius: 999px;">Your Plan</span>
+    </h3>
+    <p data-ro="✔ Acces Jamie limitat<br>✔ Câștigă credite prin reclame<br>✔ Unelte AI de bază<br><br><strong>Valabil:</strong> Permanent"
+       data-en="✔ Limited Jamie access<br>✔ Earn credits via ads<br>✔ Basic AI tools<br><br><strong>Valid:</strong> Forever">
+      ✔ Acces Jamie limitat<br>
+      ✔ Câștigă credite prin reclame<br>
+      ✔ Unelte AI de bază<br><br>
+      <strong>Valabil:</strong> Permanent
+    </p>
   </div>
+
+  <div style="flex: 1 1 280px; background: #1e293b; border-radius: 16px; padding: 1.5rem;">
+    <h3 style="color: #ffd95c;">Starter</h3>
+    <p data-ro="✔ 20 credite instant<br>✔ Fără abonament<br>✔ Acces rapid la AI<br><br><strong>Preț:</strong> 5 RON"
+       data-en="✔ 20 instant credits<br>✔ No subscription<br>✔ Great for quick access<br><br><strong>Price:</strong> 5 RON">
+      ✔ 20 credite instant<br>
+      ✔ Fără abonament<br>
+      ✔ Acces rapid la AI<br><br>
+      <strong>Preț:</strong> 5 RON
+    </p>
+  </div>
+
+  <div style="flex: 1 1 280px; background: #1e293b; border-radius: 16px; padding: 1.5rem;">
+    <h3 style="color: #ffd95c;">Pro</h3>
+    <p data-ro="✔ 20 credite pe zi<br>✔ Utilizare nelimitată Jamie<br>✔ Funcții & suport prioritare<br><br><strong>Preț:</strong> 30 RON / lună"
+       data-en="✔ 20 credits every day<br>✔ Unlimited Jamie usage<br>✔ Priority features & support<br><br><strong>Price:</strong> 30 RON / month">
+      ✔ 20 credite pe zi<br>
+      ✔ Utilizare nelimitată Jamie<br>
+      ✔ Funcții & suport prioritare<br><br>
+      <strong>Preț:</strong> 30 RON / lună
+    </p>
+  </div>
+
+
+
+      </div>
+
+      <div class="text-block">
+        <p data-ro="Poți câștiga și credite suplimentare urmărind reclame sau prin bonusuri pentru utilizare activă. Totul e gândit să fie accesibil și scalabil, indiferent cât de des folosești aplicația." data-en="You can also earn extra credits by watching ads or through bonuses for active usage. Everything is designed to be accessible and scalable, no matter how often you use the app.">Poți câștiga și <strong>credite suplimentare</strong> urmărind reclame sau prin <strong>bonusuri</strong> pentru utilizare activă. Totul e gândit să fie accesibil și scalabil, indiferent cât de des folosești aplicația.</p>
+
+        <p data-ro="Cu Jamie alături, fiecare eveniment devine mai ușor, mai eficient și mai bine organizat." data-en="With Jamie by your side, every event becomes easier, more efficient, and better organized.">Cu Jamie alături, fiecare eveniment devine mai ușor, mai eficient și mai bine organizat.</p>
+      </div>
+    </section>
+  </div>
+</main>
+
+
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-content">
       <p>© <span id="year"></span> Optima Technologies. Toate drepturile rezervate.</p>
@@ -222,6 +132,7 @@
       </div>
     </div>
   </footer>
+
   <script>
     document.getElementById("year") && (document.getElementById("year").textContent = new Date().getFullYear());
 

@@ -168,16 +168,6 @@
       margin: 2rem auto;
       line-height: 1.6;
     }
-    .video-container {
-      text-align: center;
-      margin: 4rem 0 2rem;
-    }
-    video {
-      width: 320px;
-      height: 570px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    }
     .download-buttons {
       display: flex;
       justify-content: center;
@@ -225,10 +215,7 @@
       .phone-inner img {
         height: auto;
       }
-      video {
-        width: 100%;
-        height: auto;
-      }
+     
       .text-block {
         font-size: 1rem;
       }
@@ -350,11 +337,37 @@
       Evenimentele tale contează – mici sau mari, spontane sau planificate cu luni înainte. Optima Action le oferă un spațiu dedicat în care fiecare detaliu prinde viață și fiecare participant știe exact ce urmează.
     </p>
 
-    <div class="video-container">
-      <video controls autoplay muted loop>
-        <source src="demo.mp4" type="video/mp4">
-      </video>
-    </div>
+   <!-- Imagine reprezentativă -->
+      <div style="display: flex; justify-content: center; margin: 3rem 0;">
+        <img src="img/optima-showcase.png" alt="Prezentare aplicație Optima" style="max-width: 100%; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.2);" />
+      </div>
+
+      <div class="text-block" data-ro-title="Resurse necesare" data-en-title="Required Resources">
+        <h2 style="text-align: center; color: #ffd95c; font-size: 2rem;">Resurse necesare</h2>
+        <p data-ro="Pentru a folosi aplicația în condiții optime, dispozitivul tău trebuie să respecte următoarele cerințe minime:" data-en="To use the app properly, your device must meet the following minimum requirements:">
+          Pentru a folosi aplicația în condiții optime, dispozitivul tău trebuie să respecte următoarele cerințe minime:
+        </p>
+        <div style="display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center;">
+          <div style="flex: 1 1 280px; min-width: 260px; background: #0f172a; padding: 1rem; border-radius: 12px;">
+            <h3 style="color: #ffd95c;" data-ro="Android" data-en="Android">Android</h3>
+            <ul style="list-style: none; padding-left: 0;">
+              <li data-ro="Versiune: > 5.0 (Lollipop)" data-en="Version: > 5.0 (Lollipop)"><strong>Versiune:</strong> &gt; 5.0 (Lollipop)</li>
+              <li data-ro="RAM: Minim 2 GB" data-en="RAM: Minimum 2 GB"><strong>RAM:</strong> Minim 2 GB</li>
+              <li data-ro="Spațiu: < 100 MB" data-en="Storage: < 100 MB"><strong>Spațiu:</strong> &lt; 100 MB</li>
+              <li data-ro="Conectivitate: Internet" data-en="Connectivity: Internet"><strong>Conectivitate:</strong> Internet</li>
+            </ul>
+          </div>
+          <div style="flex: 1 1 280px; min-width: 260px; background: #0f172a; padding: 1rem; border-radius: 12px;">
+            <h3 style="color: #ffd95c;" data-ro="iOS" data-en="iOS">iOS</h3>
+            <ul style="list-style: none; padding-left: 0;">
+              <li data-ro="Versiune: > 11.0 / iPhone 6" data-en="Version: > 11.0 / iPhone 6"><strong>Versiune:</strong> &gt; 11.0 / iPhone 6</li>
+              <li data-ro="RAM: Minim 2 GB" data-en="RAM: Minimum 2 GB"><strong>RAM:</strong> Minim 2 GB</li>
+              <li data-ro="Spațiu: < 100 MB" data-en="Storage: < 100 MB"><strong>Spațiu:</strong> &lt; 100 MB</li>
+              <li data-ro="Conectivitate: Internet" data-en="Connectivity: Internet"><strong>Conectivitate:</strong> Internet</li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
     <p class="text-block" data-ro="Descarcă acum și fă primul pas spre o versiune mai clară a ta." 
        data-en="Download now and take the first step toward a clearer version of yourself.">

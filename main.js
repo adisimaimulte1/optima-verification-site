@@ -7,6 +7,8 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+
+
 // ===== LIMBA & TRADUCERI =====
 
 let currentLang = localStorage.getItem("lang") || "ro";
