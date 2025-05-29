@@ -40,6 +40,14 @@
         }
         document.getElementById("verified").style.display = "block";
         document.title = "✅ Email Verified!";
+
+      
+        document.getElementById("menuToggle").style.display = "none";
+        document.getElementById("sideMenu").style.display = "none";
+        document.getElementById("languageToggle").style.display = "none";
+        document.getElementById("menuOverlay").style.display = "none";
+        
+        
       } catch (error) {
         console.error("Verification failed:", error);
         document.getElementById("failed").style.display = "block";
