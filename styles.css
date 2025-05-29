@@ -408,6 +408,27 @@ a[href="explore.html"] button:hover {
   box-shadow: 0 4px 16px #ffd95c55;
 }
 
+.centered-container {
+  max-width: 1000px;
+  margin: 7rem auto 3rem auto;
+  padding: 0 1rem;
+}
+
+.content-box {
+  background: #222f3e;
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+  color: #fff;
+}
+
+.text-block {
+  margin-bottom: 2.5rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+
 @media (max-width: 700px) {
   .top-bar {
     flex-direction: column;
