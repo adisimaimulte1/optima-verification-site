@@ -40,9 +40,6 @@
         }
         document.getElementById("verified").style.display = "block";
         document.title = "✅ Email Verified!";
-        setTimeout(() => {
-          window.location.href = "https://optima-78874.firebaseapp.com/login";
-        }, 4000);
       } catch (error) {
         console.error("Verification failed:", error);
         document.getElementById("failed").style.display = "block";
